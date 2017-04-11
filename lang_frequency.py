@@ -11,7 +11,7 @@ def load_data(filepath):
 
 
 def exclude_non_words(text):
-    regex_non_words = re.compile(r'([\d\W]+)')
+    regex_non_words = re.compile(r'[\d\W]+')
     text = regex_non_words.sub(r' ', text)
     return text
 
