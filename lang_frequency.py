@@ -10,14 +10,9 @@ def load_data(filepath):
         return data_file.read()
 
 
-def exclude_non_words(text):
-    regex_non_words = re.compile(r'[\d\W]+')
-    text = regex_non_words.sub(r' ', text)
-    return text
-
 def get_most_frequent_words(text, rows):
-    text = exclude_non_words(text) # Исключить из текста, символы, которые не являются словами
-    list_words = text.split()
+    regex_non_words = re.compile(r'[\d\W]+')
+    list_words = regex_non_words.split(text)
     list_words = map(lambda word: word.lower(), list_words) # Все слова в нижний регистр
     counts =  Counter(list_words)
     return counts.most_common(rows)
