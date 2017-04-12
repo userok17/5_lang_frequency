@@ -18,7 +18,7 @@ def exclude_non_words(text):
 def get_most_frequent_words(text, rows):
     text = exclude_non_words(text) # Исключить из текста, символы, которые не являются словами
     list_words = text.split()
-    list_words = list(map(lambda word: word.lower(), list_words)) # Все слова в нижний регистр
+    list_words = map(lambda word: word.lower(), list_words) # Все слова в нижний регистр
     counts =  Counter(list_words)
     return counts.most_common(rows)
 
